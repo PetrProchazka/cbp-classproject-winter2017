@@ -31,3 +31,8 @@ define('VIEWS_DIR', PROJECT_DIR.'/views');
 // load the libraries
 require_once(CORE_LIBRARIES_DIR.'/request.class.php');
 require_once(CORE_LIBRARIES_DIR.'/router.class.php');
+require_once(CORE_LIBRARIES_DIR.'/config.class.php');
+
+
+// load the project config
+config::load();
