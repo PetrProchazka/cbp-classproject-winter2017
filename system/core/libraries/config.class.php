@@ -26,6 +26,7 @@ class config
      */
     public static function load()
     {
+        // include the configuration file (which hopefully includes $config variable)
         include CONFIG_DIR.'/config.php';
 
         // assign $config as the value of static::$data
