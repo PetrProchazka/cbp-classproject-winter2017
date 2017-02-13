@@ -34,6 +34,7 @@ require_once(CORE_LIBRARIES_DIR.'/router.class.php');
 require_once(CORE_LIBRARIES_DIR.'/config.class.php');
 require_once(CORE_LIBRARIES_DIR.'/url.class.php');
 require_once(CORE_LIBRARIES_DIR.'/view.class.php');
+require_once(CORE_LIBRARIES_DIR.'/presenter.class.php');
 
 
 // load the project config

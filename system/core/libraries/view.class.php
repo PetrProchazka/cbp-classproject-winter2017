@@ -56,4 +56,38 @@ class view
         // get the contents of the output buffer (the 'recording') and clean the buffer
         return ob_get_clean();
     }
+
+    public function __toString()
+    {
+        return $this->render(false);
+    }
+
+    public function __set($name, $value)
+    {
+        $this->template_variables[$name] = $value;       
+    }
+
+    public function __get($name)
+    {
+        if(array_key_exists($name, $this->template_variables))
+        {
+            return $this->template_variables[$name];
+        }
+        $trace = debug_backtrace();
+        trigger_error(
+            'Undefined property via __get(): ' . $name .
+            ' in ' . $trace[0]['file'] .
+            ' on line ' . $trace[0]['line'],
+            E_USER_NOTICE);
+    }
+
+    public function __isset($name)
+    {
+        return isset($this->template_variables[$name]);
+    }
+
+    public function __unset($name)
+    {
+        unset($this->template_variables[$name]);
+    }
 }

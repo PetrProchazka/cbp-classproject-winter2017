@@ -1,29 +1,22 @@
 <?php
 
-$navigation = new view('navigation'); // /system/project/views/navigation.php
+// list of top products
+$top_products = new view('home/top_products');
 
-var_dump($navigation);
-die();
+// list of categories
+$categories = new view('home/categories');
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Homepage | <?php echo config::get('site_title'); ?></title>
-</head>
-<body>
+// shop information
+$info = new view('home/info');
 
-    <?php echo $navigation; ?>
-    
-    The homepage.<br />
+// page layout
+$page_layout = new view('home/page_layout');
+$page_layout->info = $info;
+$page_layout->top_products = $top_products;
+$page_layout->categories = $categories;
 
-    The URL of this project is <?php echo config::get('base_url', 'unknown'); ?>
-    <br />
-    The administrator of this project is <?php echo config::get('administrator', 'not set in config'); ?>
+// set thte title of the page
+presenter::setTitle('Homepage');
 
-    <h2>products</h2>
-    <a href="<?php echo url::to('product', array('id' => 123)); ?>">A product</a>
-
-</body>
-</html>
+// give the layout to the presenter to present
+presenter::present($page_layout);
