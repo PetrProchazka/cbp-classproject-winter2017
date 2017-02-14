@@ -35,7 +35,13 @@ require_once(CORE_LIBRARIES_DIR.'/config.class.php');
 require_once(CORE_LIBRARIES_DIR.'/url.class.php');
 require_once(CORE_LIBRARIES_DIR.'/view.class.php');
 require_once(CORE_LIBRARIES_DIR.'/presenter.class.php');
+require_once(CORE_LIBRARIES_DIR.'/db.class.php');
+require_once(CORE_LIBRARIES_DIR.'/functions.php');
+require_once(CORE_LIBRARIES_DIR.'/model.class.php');
 
+// load the models
+require_once(MODELS_DIR.'/product.model.php');
+require_once(MODELS_DIR.'/product.object.php');
 
 // load the project config
 config::load();

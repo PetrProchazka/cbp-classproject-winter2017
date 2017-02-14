@@ -2,9 +2,10 @@
     <h2>Categories</h2>
     <p>In our eshop we have:</p>
     <ul>
-        <li>Junk</li>
-        <li>Stuff</li>
-        <li>Bits</li>
-        <li>Pieces</li>
+        <?php foreach($categories as $category) : ?>
+            <li>
+                <?php echo $category->name; ?>
+            </li>
+        <?php endforeach; ?>
     </ul>
 </div>
