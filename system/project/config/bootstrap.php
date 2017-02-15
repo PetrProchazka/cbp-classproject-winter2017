@@ -40,8 +40,15 @@ require_once(CORE_LIBRARIES_DIR.'/functions.php');
 require_once(CORE_LIBRARIES_DIR.'/model.class.php');
 
 // load the models
-require_once(MODELS_DIR.'/product.model.php');
-require_once(MODELS_DIR.'/product.object.php');
+$files = scandir(MODELS_DIR);
+foreach($files as $file)
+{
+    if($file == '.' || $file == '..') continue;
+    if(pathinfo($file, PATHINFO_EXTENSION) == 'php')
+    {
+        require_once MODELS_DIR . '/'. $file;
+    }
+}
 
 // load the project config
 config::load();

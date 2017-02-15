@@ -6,15 +6,7 @@ $top_products->products = Product_Model::getTopProducts();
 
 // list of categories
 $categories = new view('home/categories');
-$query = "
-    SELECT `category`.*
-    FROM `category`
-    WHERE `category`.`parent_id` IS NULL
-";
-$resultset = db::query($query);
-$resultset->setFetchMode(PDO::FETCH_OBJ);
-$categories->categories = $resultset;
-
+$categories->categories = Category_Model::getTopCategories();
 
 // shop information
 $info = new view('home/info');
