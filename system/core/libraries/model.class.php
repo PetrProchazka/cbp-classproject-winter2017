@@ -10,4 +10,11 @@ class model
 
         return $statement->fetchAll();
     }
+
+    public static function fetchObject($statement)
+    {
+        $statement->setFetchMode(PDO::FETCH_CLASS, static::$object_class);
+
+        return $statement->fetch();
+    }
 }
